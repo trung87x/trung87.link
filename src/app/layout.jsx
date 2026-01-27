@@ -23,7 +23,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="vi">
+    <html lang="vi" suppressHydrationWarning>
       <body>
         <StackedLayout
           navbar={
@@ -65,6 +65,16 @@ export default function RootLayout({ children }) {
                   current={false}
                 >
                   Lunar New Year 2026
+                </NavbarItem>
+                <NavbarItem
+                  href="/convert/audio-to-hls"
+                  className=""
+                  current={false}
+                >
+                  Convert audio to HLS
+                </NavbarItem>
+                <NavbarItem href="/cloudflare/r2" className="" current={false}>
+                  Cloudflare R2
                 </NavbarItem>
               </NavbarSection>
               <NavbarSpacer className="" />

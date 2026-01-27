@@ -4,7 +4,12 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Heading, Subheading } from "@/ui/catalyst/heading";
 import { Button } from "@/ui/catalyst/button";
-import { PlayIcon, PauseIcon } from "@heroicons/react/24/solid";
+import {
+  PlayIcon,
+  PauseIcon,
+  ArrowDownTrayIcon,
+} from "@heroicons/react/24/solid";
+import Hls from "hls.js";
 
 const trackList = [
   { start: 0, title: "Xuân Đẹp Làm Sao" },
@@ -21,21 +26,46 @@ const trackList = [
   { start: 2610, title: "Ngày Tết Quê Em" },
 ];
 
+const STREAM_URL = "https://r2.trung87.link/Music/lunar-2026/hls/playlist.m3u8";
+const DOWNLOAD_URL = "https://r2.trung87.link/Music/lunar-2026/lunar-2026.mp3";
+
 export default function LunarNewYear2026Page() {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+  // Separate state for the slider to avoid conflict with audio updates
+  const [sliderValue, setSliderValue] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const [currentTrack, setCurrentTrack] = useState("Đang chuẩn bị...");
-
-  // Cập nhật tên bài hát dựa trên thời gian thực
-  const isDragging = useRef(false);
-  const sliderValueRef = useRef(0);
 
   const updateCurrentTrack = (time) => {
     const track = [...trackList].reverse().find((t) => time >= t.start);
     if (track) setCurrentTrack(track.title);
   };
+
+  useEffect(() => {
+    const video = audioRef.current;
+    if (!video) return;
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(STREAM_URL);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        // Ready to play
+      });
+      return () => {
+        hls.destroy();
+      };
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      // Safari support
+      video.src = STREAM_URL;
+    } else {
+      // Fallback to direct MP3 if HLS not supported
+      video.src = DOWNLOAD_URL;
+    }
+  }, []);
 
   const togglePlay = () => {
     if (isPlaying) {
@@ -47,9 +77,11 @@ export default function LunarNewYear2026Page() {
   };
 
   const handleTimeUpdate = () => {
-    if (!isDragging.current) {
+    // Only update state if the user is NOT dragging
+    if (!isDragging && audioRef.current) {
       const time = audioRef.current.currentTime;
       setCurrentTime(time);
+      setSliderValue(time);
       updateCurrentTrack(time);
     }
   };
@@ -58,22 +90,47 @@ export default function LunarNewYear2026Page() {
     setDuration(audioRef.current.duration);
   };
 
+  const handleSliderChange = (e) => {
+    // Just update the visual slider value while dragging
+    const val = Number(e.target.value);
+    setSliderValue(val);
+  };
+
+  // Start dragging
   const handleDragStart = () => {
-    isDragging.current = true;
-    sliderValueRef.current = currentTime;
+    setIsDragging(true);
   };
 
-  const handleDragEnd = () => {
+  // End dragging - applying the seek
+  const handleDragEnd = (e) => {
+    setIsDragging(false);
     if (audioRef.current) {
-      audioRef.current.currentTime = sliderValueRef.current;
+      const val = Number(e.target.value); // Use the current input value
+      // Or use sliderValue state if e.target.value is unreliable on touch end?
+      // Safest is to use the sliderValue state which we updated in onChange
+      audioRef.current.currentTime = sliderValue;
+      setCurrentTime(sliderValue);
     }
-    isDragging.current = false;
   };
 
-  const handleSeek = (e) => {
-    const time = Number(e.target.value);
-    sliderValueRef.current = time;
-    setCurrentTime(time);
+  const handleDownload = async () => {
+    try {
+      const response = await fetch(DOWNLOAD_URL);
+      if (!response.ok) throw new Error("Network response was not ok");
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "lunar-2026.mp3";
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error("Download failed:", error);
+      alert("Download failed. Opening in new tab instead.");
+      window.open(DOWNLOAD_URL, "_blank");
+    }
   };
 
   const formatTime = (time) => {
@@ -123,8 +180,7 @@ export default function LunarNewYear2026Page() {
             {/* Thẻ Audio duy nhất */}
             <audio
               ref={audioRef}
-              src="/audio/lunar-2026.mp3"
-              preload="metadata" // Giúp trang web load nhanh vì không tải ngay 43MB
+              // SRC will be set via HLS logic
               onTimeUpdate={handleTimeUpdate}
               onLoadedMetadata={handleLoadedMetadata}
               onEnded={() => setIsPlaying(false)}
@@ -135,9 +191,9 @@ export default function LunarNewYear2026Page() {
               <input
                 type="range"
                 min="0"
-                max={duration || 0}
-                value={currentTime}
-                onChange={handleSeek}
+                max={duration || 100} // Fallback max to prevent stuck slider if duration isn't loaded yet
+                value={sliderValue}
+                onChange={handleSliderChange}
                 onMouseDown={handleDragStart}
                 onMouseUp={handleDragEnd}
                 onTouchStart={handleDragStart}
@@ -151,18 +207,29 @@ export default function LunarNewYear2026Page() {
               </div>
             </div>
 
-            {/* Control Button */}
-            <Button
-              color="red"
-              className="flex h-20 w-20 items-center justify-center rounded-full !p-0 shadow-2xl transition-all hover:scale-110 active:scale-95"
-              onClick={togglePlay}
-            >
-              {isPlaying ? (
-                <PauseIcon className="size-10 text-white" />
-              ) : (
-                <PlayIcon className="size-10 text-white" />
-              )}
-            </Button>
+            {/* Controls */}
+            <div className="flex items-center gap-4">
+              <Button
+                color="red"
+                className="flex h-20 w-20 items-center justify-center rounded-full !p-0 shadow-2xl transition-all hover:scale-110 active:scale-95"
+                onClick={togglePlay}
+              >
+                {isPlaying ? (
+                  <PauseIcon className="size-10 text-white" />
+                ) : (
+                  <PlayIcon className="size-10 text-white" />
+                )}
+              </Button>
+
+              <Button
+                color="white"
+                className="flex h-12 w-12 items-center justify-center rounded-full !p-0 shadow-lg transition-all hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                onClick={handleDownload}
+                title="Download MP3"
+              >
+                <ArrowDownTrayIcon className="size-6 text-zinc-600 dark:text-zinc-300" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>

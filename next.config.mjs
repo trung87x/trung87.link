@@ -1,6 +1,6 @@
 const nextConfig = {
   // 1. Chuyển sang chế độ xuất file tĩnh
-  output: "export",
+  // output: "export", // Removed for Vercel
   images: {
     // unoptimized: true,
     // Khai báo danh sách các trang web được phép lấy ảnh
@@ -12,6 +12,23 @@ const nextConfig = {
         pathname: "/**", // Cho phép tất cả các đường dẫn ảnh từ trang này
       },
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Cross-Origin-Opener-Policy",
+            value: "same-origin",
+          },
+          {
+            key: "Cross-Origin-Embedder-Policy",
+            value: "require-corp",
+          },
+        ],
+      },
+    ];
   },
 };
 

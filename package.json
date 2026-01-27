@@ -3,18 +3,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "pages:build": "next build",
-    "deploy": "next build && wrangler pages deploy out --project-name trung87",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.975.0",
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2",
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
     "@tailwindcss/postcss": "^4.1.18",
     "clsx": "^2.1.1",
     "framer-motion": "^12.26.1",
+    "hls.js": "^1.6.15",
+    "jszip": "^3.10.1",
     "next": "^16.1.1",
+    "p-limit": "^7.2.0",
     "postcss": "^8.5.6",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
@@ -33,7 +38,6 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "prettier": "^3.7.4",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "wrangler": "^4.60.0"
+    "prettier-plugin-tailwindcss": "^0.7.2"
   }
 }
