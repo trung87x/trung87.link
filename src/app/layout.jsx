@@ -76,6 +76,9 @@ export default function RootLayout({ children }) {
                 <NavbarItem href="/cloudflare/r2" className="" current={false}>
                   Cloudflare R2
                 </NavbarItem>
+                <NavbarItem href="/blog" className="" current={false}>
+                  Blog
+                </NavbarItem>
               </NavbarSection>
               <NavbarSpacer className="" />
               <NavbarSection className="">
