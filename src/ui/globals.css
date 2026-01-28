@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../../node_modules/highlight.js/styles/atom-one-dark.css";
 @import "./theme/light.css";
 @import "./colors.css";
 @import "./elevation.css";
