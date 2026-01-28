@@ -141,9 +141,20 @@ export default function R2ManagerPage() {
       return;
     }
 
-    setCredentials(creds);
-    sessionStorage.setItem("r2_credentials", JSON.stringify(creds));
-    initClient(creds);
+    // Trim whitespace from all fields
+    const cleanedCreds = {
+      endpoint: creds.endpoint.trim().replace(/\/$/, ""),
+      accessKeyId: creds.accessKeyId.trim(),
+      secretAccessKey: creds.secretAccessKey.trim(),
+      bucket: creds.bucket.trim(),
+      publicDomain: creds.publicDomain
+        ? creds.publicDomain.trim().replace(/\/$/, "")
+        : "",
+    };
+
+    setCredentials(cleanedCreds);
+    sessionStorage.setItem("r2_credentials", JSON.stringify(cleanedCreds));
+    initClient(cleanedCreds);
   };
 
   const handleLogout = () => {
@@ -609,15 +620,36 @@ export default function R2ManagerPage() {
   }
 ]`}
                 </pre>
-                <p className="mt-2 text-xs text-gray-500">
-                  Note: Ensure <code>AllowedOrigins</code> includes exactly{" "}
-                  <strong>
-                    {mounted && typeof window !== "undefined"
-                      ? window.location.origin
-                      : "current domain"}
-                  </strong>{" "}
-                  (no trailing slash).
-                </p>
+                <div className="mt-2 flex items-center justify-between">
+                  <p className="text-xs text-gray-500">
+                    Note: Ensure <code>AllowedOrigins</code> includes exactly{" "}
+                    <strong>
+                      {mounted && typeof window !== "undefined"
+                        ? window.location.origin
+                        : "current domain"}
+                    </strong>{" "}
+                    (no trailing slash).
+                  </p>
+                  <Button
+                    onClick={() => {
+                      const origin = window.location.origin;
+                      const json = `[
+  {
+    "AllowedOrigins": ["${origin}"],
+    "AllowedMethods": ["GET", "PUT", "POST", "DELETE", "HEAD"],
+    "AllowedHeaders": ["*"],
+    "ExposeHeaders": ["ETag"],
+    "MaxAgeSeconds": 3000
+  }
+]`;
+                      navigator.clipboard.writeText(json);
+                      alert("CORS JSON copied to clipboard!");
+                    }}
+                    className="h-8 px-2 text-xs"
+                  >
+                    Copy JSON
+                  </Button>
+                </div>
               </div>
             )}
           </div>
