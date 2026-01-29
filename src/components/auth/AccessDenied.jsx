@@ -1,21 +1,30 @@
 "use client";
 
-import { handleSignOut } from "@/lib/actions/auth";
+import { handleSignOut } from "@/utils/auth/actions";
 import {
   ShieldExclamationIcon,
   ArrowLeftIcon,
   SparklesIcon,
+  CheckCircleIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
-/**
- * AccessDenied Component
- * Handles the UI when a user is authenticated but doesn't have course access.
- * Includes a "Buy Now" button that integrates with PayOS.
- */
-export default function AccessDenied({ userEmail, courseId }) {
+function AccessDeniedContent({ userEmail, courseId }) {
   const [loading, setLoading] = useState(false);
+  const searchParams = useSearchParams();
+  const paymentStatus = searchParams.get("status");
+
+  // Automatically refresh if returning from payment
+  useEffect(() => {
+    if (paymentStatus === "PAID") {
+      const timer = setTimeout(() => {
+        window.location.href = `/blog/${courseId}`;
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [paymentStatus, courseId]);
 
   const handlePurchase = async () => {
     setLoading(true);
@@ -48,6 +57,30 @@ export default function AccessDenied({ userEmail, courseId }) {
       setLoading(false);
     }
   };
+
+  if (paymentStatus === "PAID") {
+    return (
+      <div className="flex min-h-[80vh] items-center justify-center px-4 text-center font-sans">
+        <div className="w-full max-w-md">
+          <div className="mb-8 flex justify-center">
+            <CheckCircleIcon className="h-20 w-20 animate-bounce text-green-500" />
+          </div>
+          <h1 className="mb-4 text-3xl font-extrabold text-white">
+            Thanh toán thành công!
+          </h1>
+          <p className="mb-8 text-gray-400">
+            Hệ thống đang kích hoạt khóa học cho bạn. Vui lòng đợi trong giây
+            lát...
+          </p>
+          <div className="flex justify-center">
+            <div className="h-1 w-full max-w-[200px] overflow-hidden rounded-full bg-white/10">
+              <div className="h-full w-full animate-pulse bg-green-500"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-[80vh] items-center justify-center px-4 font-sans">
@@ -108,5 +141,13 @@ export default function AccessDenied({ userEmail, courseId }) {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AccessDenied(props) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AccessDeniedContent {...props} />
+    </Suspense>
   );
 }

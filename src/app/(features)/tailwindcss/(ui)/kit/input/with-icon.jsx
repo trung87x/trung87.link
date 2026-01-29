@@ -1,4 +1,4 @@
-import { Input, InputGroup } from "@/ui/catalyst/input";
+import { Input, InputGroup } from "@/components/catalyst/input";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 
 export default function Example() {

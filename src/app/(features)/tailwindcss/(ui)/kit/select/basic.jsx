@@ -1,4 +1,4 @@
-import { Select } from "@/ui/catalyst/select";
+import { Select } from "@/components/catalyst/select";
 
 export default function Example() {
   return (

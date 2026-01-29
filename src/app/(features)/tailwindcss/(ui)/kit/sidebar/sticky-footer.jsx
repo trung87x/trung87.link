@@ -1,4 +1,4 @@
-import { Avatar } from "@/ui/catalyst/avatar";
+import { Avatar } from "@/components/catalyst/avatar";
 import {
   Sidebar,
   SidebarBody,
@@ -6,7 +6,7 @@ import {
   SidebarItem,
   SidebarLabel,
   SidebarSection,
-} from "@/ui/catalyst/sidebar";
+} from "@/components/catalyst/sidebar";
 import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import {
   Cog6ToothIcon,

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getRepoContent } from "@/lib/github";
+import { getRepoContent } from "@/utils/github";
 import {
   CommandLineIcon,
   BeakerIcon,

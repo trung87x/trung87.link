@@ -1,5 +1,5 @@
-import { Description, Label } from "@/ui/catalyst/fieldset";
-import { Radio, RadioField, RadioGroup } from "@/ui/catalyst/radio";
+import { Description, Label } from "@/components/catalyst/fieldset";
+import { Radio, RadioField, RadioGroup } from "@/components/catalyst/radio";
 
 export default function Example() {
   return (

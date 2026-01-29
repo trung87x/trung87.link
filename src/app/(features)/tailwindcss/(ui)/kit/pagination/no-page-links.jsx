@@ -2,7 +2,7 @@ import {
   Pagination,
   PaginationNext,
   PaginationPrevious,
-} from "@/ui/catalyst/pagination";
+} from "@/components/catalyst/pagination";
 
 export default function Example() {
   return (

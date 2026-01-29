@@ -1,7 +1,7 @@
-import { Description, Field, FieldGroup, Label } from "@/ui/catalyst/fieldset";
-import { Input } from "@/ui/catalyst/input";
-import { Select } from "@/ui/catalyst/select";
-import { Textarea } from "@/ui/catalyst/textarea";
+import { Description, Field, FieldGroup, Label } from "@/components/catalyst/fieldset";
+import { Input } from "@/components/catalyst/input";
+import { Select } from "@/components/catalyst/select";
+import { Textarea } from "@/components/catalyst/textarea";
 
 export default function Example() {
   return (

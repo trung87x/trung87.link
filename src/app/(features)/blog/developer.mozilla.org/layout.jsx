@@ -1,5 +1,5 @@
-import { auth } from "@/lib/auth";
-import { isStudent } from "@/lib/students";
+import { auth } from "@/utils/auth";
+import { isStudent } from "@/utils/supabase/server";
 import AccessDenied from "@/components/auth/AccessDenied";
 
 export default async function MDNLayout({ children }) {

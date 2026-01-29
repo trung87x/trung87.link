@@ -6,16 +6,16 @@ import {
   AlertBody,
   AlertDescription,
   AlertTitle,
-} from "@/ui/catalyst/alert";
-import { Button } from "@/ui/catalyst/button";
+} from "@/components/catalyst/alert";
+import { Button } from "@/components/catalyst/button";
 import {
   Dialog,
   DialogActions,
   DialogBody,
   DialogDescription,
   DialogTitle,
-} from "@/ui/catalyst/dialog";
-import { Divider } from "@/ui/catalyst/divider";
+} from "@/components/catalyst/dialog";
+import { Divider } from "@/components/catalyst/divider";
 import {
   Dropdown,
   DropdownButton,
@@ -23,9 +23,9 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu,
-} from "@/ui/catalyst/dropdown";
-import { Heading, Subheading } from "@/ui/catalyst/heading";
-import { Code, Text } from "@/ui/catalyst/text";
+} from "@/components/catalyst/dropdown";
+import { Heading, Subheading } from "@/components/catalyst/heading";
+import { Code, Text } from "@/components/catalyst/text";
 import { ArrowDownCircleIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 

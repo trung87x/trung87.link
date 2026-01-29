@@ -1,5 +1,5 @@
-import { Avatar } from "@/ui/catalyst/avatar";
-import { Badge } from "@/ui/catalyst/badge";
+import { Avatar } from "@/components/catalyst/avatar";
+import { Badge } from "@/components/catalyst/badge";
 import {
   Table,
   TableBody,
@@ -7,7 +7,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/ui/catalyst/table";
+} from "@/components/catalyst/table";
 
 export default function ComplexExample({ users }) {
   return (

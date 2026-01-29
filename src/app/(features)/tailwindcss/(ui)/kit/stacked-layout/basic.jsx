@@ -1,6 +1,6 @@
-import { Navbar } from "@/ui/catalyst/navbar";
-import { Sidebar } from "@/ui/catalyst/sidebar";
-import { StackedLayout } from "@/ui/catalyst/stacked-layout";
+import { Navbar } from "@/components/catalyst/navbar";
+import { Sidebar } from "@/components/catalyst/sidebar";
+import { StackedLayout } from "@/components/catalyst/stacked-layout";
 
 export default function Example({ children }) {
   return (

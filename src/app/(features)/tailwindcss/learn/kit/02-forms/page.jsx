@@ -1,6 +1,6 @@
-import { Button } from "@/ui/catalyst/button";
-import { Checkbox, CheckboxField, CheckboxGroup } from "@/ui/catalyst/checkbox";
-import { Divider } from "@/ui/catalyst/divider";
+import { Button } from "@/components/catalyst/button";
+import { Checkbox, CheckboxField, CheckboxGroup } from "@/components/catalyst/checkbox";
+import { Divider } from "@/components/catalyst/divider";
 import {
   Description,
   Field,
@@ -8,20 +8,20 @@ import {
   Fieldset,
   Label,
   Legend,
-} from "@/ui/catalyst/fieldset";
-import { Heading, Subheading } from "@/ui/catalyst/heading";
-import { Input } from "@/ui/catalyst/input";
+} from "@/components/catalyst/fieldset";
+import { Heading, Subheading } from "@/components/catalyst/heading";
+import { Input } from "@/components/catalyst/input";
 import {
   Listbox,
   ListboxDescription,
   ListboxLabel,
   ListboxOption,
-} from "@/ui/catalyst/listbox";
-import { Radio, RadioField, RadioGroup } from "@/ui/catalyst/radio";
-import { Select } from "@/ui/catalyst/select";
-import { Switch, SwitchField, SwitchGroup } from "@/ui/catalyst/switch";
-import { Code, Text } from "@/ui/catalyst/text";
-import { Textarea } from "@/ui/catalyst/textarea";
+} from "@/components/catalyst/listbox";
+import { Radio, RadioField, RadioGroup } from "@/components/catalyst/radio";
+import { Select } from "@/components/catalyst/select";
+import { Switch, SwitchField, SwitchGroup } from "@/components/catalyst/switch";
+import { Code, Text } from "@/components/catalyst/text";
+import { Textarea } from "@/components/catalyst/textarea";
 
 export const metadata = {
   title: "Forms & Inputs - Catalyst Learn",

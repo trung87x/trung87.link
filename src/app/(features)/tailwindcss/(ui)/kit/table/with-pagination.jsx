@@ -5,7 +5,7 @@ import {
   PaginationNext,
   PaginationPage,
   PaginationPrevious,
-} from "@/ui/catalyst/pagination";
+} from "@/components/catalyst/pagination";
 import {
   Table,
   TableBody,
@@ -13,7 +13,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/ui/catalyst/table";
+} from "@/components/catalyst/table";
 
 export default function Example({ users }) {
   return (

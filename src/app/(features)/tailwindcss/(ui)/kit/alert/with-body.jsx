@@ -6,9 +6,9 @@ import {
   AlertBody,
   AlertDescription,
   AlertTitle,
-} from "@/ui/catalyst/alert";
-import { Button } from "@/ui/catalyst/button";
-import { Input } from "@/ui/catalyst/input";
+} from "@/components/catalyst/alert";
+import { Button } from "@/components/catalyst/button";
+import { Input } from "@/components/catalyst/input";
 import { useState } from "react";
 
 export default function Example() {

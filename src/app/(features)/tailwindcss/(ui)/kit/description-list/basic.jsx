@@ -2,7 +2,7 @@ import {
   DescriptionDetails,
   DescriptionList,
   DescriptionTerm,
-} from "@/ui/catalyst/description-list";
+} from "@/components/catalyst/description-list";
 
 export default function Example() {
   return (

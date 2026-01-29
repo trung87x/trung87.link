@@ -5,8 +5,8 @@ import {
   AlertActions,
   AlertDescription,
   AlertTitle,
-} from "@/ui/catalyst/alert";
-import { Button } from "@/ui/catalyst/button";
+} from "@/components/catalyst/alert";
+import { Button } from "@/components/catalyst/button";
 import { useState } from "react";
 
 export default function Example() {

@@ -1,4 +1,4 @@
-import { Listbox, ListboxLabel, ListboxOption } from "@/ui/catalyst/listbox";
+import { Listbox, ListboxLabel, ListboxOption } from "@/components/catalyst/listbox";
 
 export default function Example() {
   return (

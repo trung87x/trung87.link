@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { getRepoContent, getFileContent } from "@/lib/github";
-import { RemoteMDX } from "@/ui/markdown";
+import { getRepoContent, getFileContent } from "@/utils/github";
+import { RemoteMDX } from "@/components/markdown";
 import {
   FolderIcon,
   DocumentTextIcon,

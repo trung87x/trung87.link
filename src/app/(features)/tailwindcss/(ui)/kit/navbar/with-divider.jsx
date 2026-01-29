@@ -3,8 +3,8 @@ import {
   NavbarDivider,
   NavbarItem,
   NavbarSection,
-} from "@/ui/catalyst/navbar";
-import { Link } from "@/ui/catalyst/link";
+} from "@/components/catalyst/navbar";
+import { Link } from "@/components/catalyst/link";
 import { Logo } from "./logo";
 
 export default function Example() {

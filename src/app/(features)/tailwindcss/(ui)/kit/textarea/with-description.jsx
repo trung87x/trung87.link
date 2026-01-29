@@ -1,5 +1,5 @@
-import { Description, Field, Label } from "@/ui/catalyst/fieldset";
-import { Textarea } from "@/ui/catalyst/textarea";
+import { Description, Field, Label } from "@/components/catalyst/fieldset";
+import { Textarea } from "@/components/catalyst/textarea";
 
 export default function Example() {
   return (

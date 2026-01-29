@@ -1,4 +1,4 @@
-import { Avatar } from "@/ui/catalyst/avatar";
+import { Avatar } from "@/components/catalyst/avatar";
 import {
   DropdownButton,
   Dropdown,
@@ -6,9 +6,9 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu,
-} from "@/ui/catalyst/dropdown";
-import { Navbar, NavbarItem, NavbarSpacer } from "@/ui/catalyst/navbar";
-import { Link } from "@/ui/catalyst/link";
+} from "@/components/catalyst/dropdown";
+import { Navbar, NavbarItem, NavbarSpacer } from "@/components/catalyst/navbar";
+import { Link } from "@/components/catalyst/link";
 import {
   ArrowRightStartOnRectangleIcon,
   Cog8ToothIcon,

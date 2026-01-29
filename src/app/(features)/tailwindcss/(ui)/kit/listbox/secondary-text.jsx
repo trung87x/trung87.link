@@ -1,10 +1,10 @@
-import { Field, Label } from "@/ui/catalyst/fieldset";
+import { Field, Label } from "@/components/catalyst/fieldset";
 import {
   Listbox,
   ListboxDescription,
   ListboxLabel,
   ListboxOption,
-} from "@/ui/catalyst/listbox";
+} from "@/components/catalyst/listbox";
 
 export default function Example({ users }) {
   return (

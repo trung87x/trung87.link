@@ -2,8 +2,8 @@
 // Lunar new year page
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Heading, Subheading } from "@/ui/catalyst/heading";
-import { Button } from "@/ui/catalyst/button";
+import { Heading, Subheading } from "@/components/catalyst/heading";
+import { Button } from "@/components/catalyst/button";
 import {
   PlayIcon,
   PauseIcon,

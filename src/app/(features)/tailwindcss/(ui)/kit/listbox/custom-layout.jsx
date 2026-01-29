@@ -1,5 +1,5 @@
-import { Label } from "@/ui/catalyst/fieldset";
-import { Listbox, ListboxLabel, ListboxOption } from "@/ui/catalyst/listbox";
+import { Label } from "@/components/catalyst/fieldset";
+import { Listbox, ListboxLabel, ListboxOption } from "@/components/catalyst/listbox";
 import * as Headless from "@headlessui/react";
 
 export default function Example() {

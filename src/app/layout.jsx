@@ -1,19 +1,19 @@
-import "@/ui/globals.css";
+import "@/styles/globals.css";
 
 import {
   Navbar,
   NavbarItem,
   NavbarSection,
   NavbarSpacer,
-} from "ui/catalyst/navbar";
+} from "@/components/catalyst/navbar";
 import {
   Sidebar,
   SidebarBody,
   SidebarHeader,
   SidebarItem,
   SidebarSection,
-} from "ui/catalyst/sidebar";
-import { StackedLayout } from "ui/catalyst/stacked-layout";
+} from "@/components/catalyst/sidebar";
+import { StackedLayout } from "@/components/catalyst/stacked-layout";
 import Link from "next/link";
 import AuthButton from "@/components/auth/AuthButton";
 
@@ -55,11 +55,9 @@ export default function RootLayout({ children }) {
                 >
                   Kit
                 </NavbarItem>
-
                 <NavbarItem href="/bricksbuilder" className="" current={false}>
                   Bricks builder
                 </NavbarItem>
-
                 <NavbarItem
                   href="/lunar-new-year/2026"
                   className=""
@@ -79,6 +77,9 @@ export default function RootLayout({ children }) {
                 </NavbarItem>
                 <NavbarItem href="/blog" className="" current={false}>
                   Blog
+                </NavbarItem>
+                <NavbarItem href="/heroicons" className="" current={false}>
+                  Heroicons
                 </NavbarItem>
               </NavbarSection>
               <NavbarSpacer className="" />

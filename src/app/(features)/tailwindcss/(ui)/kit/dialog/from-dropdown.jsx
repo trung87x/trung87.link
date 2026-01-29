@@ -1,21 +1,21 @@
 "use client";
 
-import { Button } from "@/ui/catalyst/button";
+import { Button } from "@/components/catalyst/button";
 import {
   Dialog,
   DialogActions,
   DialogBody,
   DialogDescription,
   DialogTitle,
-} from "@/ui/catalyst/dialog";
+} from "@/components/catalyst/dialog";
 import {
   Dropdown,
   DropdownButton,
   DropdownItem,
   DropdownMenu,
-} from "@/ui/catalyst/dropdown";
-import { Field, Label } from "@/ui/catalyst/fieldset";
-import { Input } from "@/ui/catalyst/input";
+} from "@/components/catalyst/dropdown";
+import { Field, Label } from "@/components/catalyst/fieldset";
+import { Input } from "@/components/catalyst/input";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
 

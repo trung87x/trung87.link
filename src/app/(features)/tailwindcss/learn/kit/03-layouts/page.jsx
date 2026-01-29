@@ -1,13 +1,13 @@
-import { Button } from "@/ui/catalyst/button";
-import { Divider } from "@/ui/catalyst/divider";
-import { Heading, Subheading } from "@/ui/catalyst/heading";
+import { Button } from "@/components/catalyst/button";
+import { Divider } from "@/components/catalyst/divider";
+import { Heading, Subheading } from "@/components/catalyst/heading";
 import {
   Navbar,
   NavbarDivider,
   NavbarItem,
   NavbarSection,
   NavbarSpacer,
-} from "@/ui/catalyst/navbar";
+} from "@/components/catalyst/navbar";
 import {
   Sidebar,
   SidebarDivider,
@@ -15,8 +15,8 @@ import {
   SidebarItem,
   SidebarSection,
   SidebarSpacer,
-} from "@/ui/catalyst/sidebar";
-import { Code, Text } from "@/ui/catalyst/text";
+} from "@/components/catalyst/sidebar";
+import { Code, Text } from "@/components/catalyst/text";
 import {
   HomeIcon,
   MagnifyingGlassIcon,

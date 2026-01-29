@@ -1,6 +1,6 @@
 "use client";
 
-import { Switch } from "@/ui/catalyst/switch";
+import { Switch } from "@/components/catalyst/switch";
 import { useState } from "react";
 
 export default function Example() {

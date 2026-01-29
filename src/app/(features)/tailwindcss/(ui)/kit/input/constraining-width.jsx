@@ -1,5 +1,5 @@
-import { Field, Label } from "@/ui/catalyst/fieldset";
-import { Input } from "@/ui/catalyst/input";
+import { Field, Label } from "@/components/catalyst/fieldset";
+import { Input } from "@/components/catalyst/input";
 
 export default function Example() {
   return (

@@ -2,8 +2,8 @@ import {
   DescriptionDetails,
   DescriptionList,
   DescriptionTerm,
-} from "@/ui/catalyst/description-list";
-import { Subheading } from "@/ui/catalyst/heading";
+} from "@/components/catalyst/description-list";
+import { Subheading } from "@/components/catalyst/heading";
 
 export default function Example() {
   return (

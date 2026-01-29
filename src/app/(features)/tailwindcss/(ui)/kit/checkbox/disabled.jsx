@@ -1,6 +1,6 @@
-import { Checkbox, CheckboxField, CheckboxGroup } from "@/ui/catalyst/checkbox";
-import { Description, Fieldset, Label, Legend } from "@/ui/catalyst/fieldset";
-import { Text } from "@/ui/catalyst/text";
+import { Checkbox, CheckboxField, CheckboxGroup } from "@/components/catalyst/checkbox";
+import { Description, Fieldset, Label, Legend } from "@/components/catalyst/fieldset";
+import { Text } from "@/components/catalyst/text";
 
 export default function Example() {
   return (

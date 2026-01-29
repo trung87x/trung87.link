@@ -1,4 +1,4 @@
-import { signIn } from "@/lib/auth";
+import { signIn } from "@/utils/auth";
 import { SparklesIcon } from "@heroicons/react/24/outline";
 
 export default function SignInPage() {

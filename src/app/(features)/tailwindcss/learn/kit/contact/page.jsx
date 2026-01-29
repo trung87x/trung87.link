@@ -1,8 +1,8 @@
-import { Button } from '@/ui/catalyst/button'
-import { Field, FieldGroup, Fieldset, Label, Legend } from '@/ui/catalyst/fieldset'
-import { Heading } from '@/ui/catalyst/heading'
-import { Input } from '@/ui/catalyst/input'
-import { Textarea } from '@/ui/catalyst/textarea'
+import { Button } from '@/components/catalyst/button'
+import { Field, FieldGroup, Fieldset, Label, Legend } from '@/components/catalyst/fieldset'
+import { Heading } from '@/components/catalyst/heading'
+import { Input } from '@/components/catalyst/input'
+import { Textarea } from '@/components/catalyst/textarea'
 
 export const metadata = {
   title: 'Contact Form - Catalyst Showcase',

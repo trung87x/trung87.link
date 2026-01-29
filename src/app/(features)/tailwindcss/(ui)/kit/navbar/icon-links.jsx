@@ -3,8 +3,8 @@ import {
   NavbarItem,
   NavbarSection,
   NavbarSpacer,
-} from "@/ui/catalyst/navbar";
-import { Link } from "@/ui/catalyst/link";
+} from "@/components/catalyst/navbar";
+import { Link } from "@/components/catalyst/link";
 import { InboxIcon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Logo } from "./logo";
 

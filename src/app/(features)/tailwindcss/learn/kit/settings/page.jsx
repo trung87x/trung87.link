@@ -1,5 +1,5 @@
-import { AvatarButton } from "@/ui/catalyst/avatar";
-import { Button } from "@/ui/catalyst/button";
+import { AvatarButton } from "@/components/catalyst/avatar";
+import { Button } from "@/components/catalyst/button";
 import {
   Description,
   Field,
@@ -7,12 +7,12 @@ import {
   Fieldset,
   Label,
   Legend,
-} from "@/ui/catalyst/fieldset";
-import { Heading, Subheading } from "@/ui/catalyst/heading";
-import { Radio, RadioField, RadioGroup } from "@/ui/catalyst/radio";
-import { Select } from "@/ui/catalyst/select";
-import { Switch, SwitchField } from "@/ui/catalyst/switch";
-import { Text } from "@/ui/catalyst/text";
+} from "@/components/catalyst/fieldset";
+import { Heading, Subheading } from "@/components/catalyst/heading";
+import { Radio, RadioField, RadioGroup } from "@/components/catalyst/radio";
+import { Select } from "@/components/catalyst/select";
+import { Switch, SwitchField } from "@/components/catalyst/switch";
+import { Text } from "@/components/catalyst/text";
 
 export const metadata = {
   title: "Settings - Catalyst Showcase",

@@ -1,4 +1,4 @@
-import { Navbar, NavbarItem, NavbarSection } from "@/ui/catalyst/navbar";
+import { Navbar, NavbarItem, NavbarSection } from "@/components/catalyst/navbar";
 
 export default function Example() {
   return (

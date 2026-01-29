@@ -1,6 +1,6 @@
 "use server";
 
-import { signOut, signIn } from "@/lib/auth";
+import { signOut, signIn } from "@/utils/auth";
 
 export async function handleSignOut(options) {
   return await signOut(options);

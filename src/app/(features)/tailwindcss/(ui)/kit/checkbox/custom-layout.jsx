@@ -1,5 +1,5 @@
-import { Checkbox } from "@/ui/catalyst/checkbox";
-import { Label } from "@/ui/catalyst/fieldset";
+import { Checkbox } from "@/components/catalyst/checkbox";
+import { Label } from "@/components/catalyst/fieldset";
 import * as Headless from "@headlessui/react";
 
 export default function Example() {

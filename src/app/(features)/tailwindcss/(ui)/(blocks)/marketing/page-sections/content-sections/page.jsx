@@ -1,5 +1,5 @@
-import PreviewWrapper from "@/lib/utils/preview-wrapper";
-import { getRaw } from "@/lib/utils/get-raw";
+import PreviewWrapper from "@/utils/ui/preview-wrapper";
+import { getRaw } from "@/utils/ui/get-raw";
 
 // Import components
 import WithStickyProductScreenshot from "./with_sticky_product_screenshot";

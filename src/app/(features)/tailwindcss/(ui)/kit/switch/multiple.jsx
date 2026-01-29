@@ -1,5 +1,5 @@
-import { Description, Label } from "@/ui/catalyst/fieldset";
-import { Switch, SwitchField, SwitchGroup } from "@/ui/catalyst/switch";
+import { Description, Label } from "@/components/catalyst/fieldset";
+import { Switch, SwitchField, SwitchGroup } from "@/components/catalyst/switch";
 
 export default function Example() {
   return (

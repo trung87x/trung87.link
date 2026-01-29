@@ -1,7 +1,7 @@
 "use client";
 
-import { Field, Label } from "@/ui/catalyst/fieldset";
-import { Select } from "@/ui/catalyst/select";
+import { Field, Label } from "@/components/catalyst/fieldset";
+import { Select } from "@/components/catalyst/select";
 import { useState } from "react";
 
 export default function Example() {

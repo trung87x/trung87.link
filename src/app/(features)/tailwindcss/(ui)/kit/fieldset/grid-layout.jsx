@@ -5,11 +5,11 @@ import {
   Fieldset,
   Label,
   Legend,
-} from "@/ui/catalyst/fieldset";
-import { Input } from "@/ui/catalyst/input";
-import { Select } from "@/ui/catalyst/select";
-import { Text } from "@/ui/catalyst/text";
-import { Textarea } from "@/ui/catalyst/textarea";
+} from "@/components/catalyst/fieldset";
+import { Input } from "@/components/catalyst/input";
+import { Select } from "@/components/catalyst/select";
+import { Text } from "@/components/catalyst/text";
+import { Textarea } from "@/components/catalyst/textarea";
 
 export default function Example() {
   return (

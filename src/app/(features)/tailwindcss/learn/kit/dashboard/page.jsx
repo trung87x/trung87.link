@@ -1,9 +1,9 @@
-import { Badge } from '@/ui/catalyst/badge'
-import { Button } from '@/ui/catalyst/button'
-import { Dropdown, DropdownButton, DropdownItem, DropdownMenu } from '@/ui/catalyst/dropdown'
-import { Heading } from '@/ui/catalyst/heading'
-import { Pagination, PaginationList, PaginationNext, PaginationPage, PaginationPrevious } from '@/ui/catalyst/pagination'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/ui/catalyst/table'
+import { Badge } from '@/components/catalyst/badge'
+import { Button } from '@/components/catalyst/button'
+import { Dropdown, DropdownButton, DropdownItem, DropdownMenu } from '@/components/catalyst/dropdown'
+import { Heading } from '@/components/catalyst/heading'
+import { Pagination, PaginationList, PaginationNext, PaginationPage, PaginationPrevious } from '@/components/catalyst/pagination'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/catalyst/table'
 
 export const metadata = {
   title: 'Dashboard - Catalyst Showcase',

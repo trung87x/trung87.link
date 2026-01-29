@@ -1,5 +1,5 @@
-import PreviewWrapper from "@/lib/utils/preview-wrapper";
-import { getRaw } from "@/lib/utils/get-raw";
+import PreviewWrapper from "@/utils/ui/preview-wrapper";
+import { getRaw } from "@/utils/ui/get-raw";
 
 // Import components
 import FourColumnWithCompanyMissionOnDark from "./4_column_with_company_mission_on_dark";

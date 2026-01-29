@@ -1,4 +1,4 @@
-import { AvatarButton } from "@/ui/catalyst/avatar";
+import { AvatarButton } from "@/components/catalyst/avatar";
 
 export default function Example({ user }) {
   return (

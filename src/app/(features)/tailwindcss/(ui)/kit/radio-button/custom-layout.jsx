@@ -1,4 +1,4 @@
-import { Radio } from "@/ui/catalyst/radio";
+import { Radio } from "@/components/catalyst/radio";
 import * as Headless from "@headlessui/react";
 
 export default function Example() {

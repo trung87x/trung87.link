@@ -5,7 +5,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/ui/catalyst/table";
+} from "@/components/catalyst/table";
 
 export default function Example({ players }) {
   return (

@@ -5,7 +5,7 @@ import {
   SidebarLabel,
   SidebarSection,
   SidebarSpacer,
-} from "@/ui/catalyst/sidebar";
+} from "@/components/catalyst/sidebar";
 import {
   ArrowRightStartOnRectangleIcon,
   Cog6ToothIcon,

@@ -1,6 +1,6 @@
 "use client";
 
-import { Checkbox } from "@/ui/catalyst/checkbox";
+import { Checkbox } from "@/components/catalyst/checkbox";
 import { useState } from "react";
 
 export default function Example() {

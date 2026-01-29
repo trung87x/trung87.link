@@ -1,13 +1,13 @@
 "use client";
 
-import { Button } from "@/ui/catalyst/button";
+import { Button } from "@/components/catalyst/button";
 import {
   Dialog,
   DialogActions,
   DialogBody,
   DialogDescription,
   DialogTitle,
-} from "@/ui/catalyst/dialog";
+} from "@/components/catalyst/dialog";
 import { useState } from "react";
 
 export default function Example() {

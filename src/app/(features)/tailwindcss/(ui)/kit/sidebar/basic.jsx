@@ -3,7 +3,7 @@ import {
   SidebarBody,
   SidebarItem,
   SidebarSection,
-} from "@/ui/catalyst/sidebar";
+} from "@/components/catalyst/sidebar";
 
 export default function Example() {
   return (

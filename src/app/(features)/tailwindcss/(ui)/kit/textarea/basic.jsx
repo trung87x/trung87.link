@@ -1,4 +1,4 @@
-import { Textarea } from "@/ui/catalyst/textarea";
+import { Textarea } from "@/components/catalyst/textarea";
 
 export default function Example() {
   return <Textarea aria-label="Description" name="description" />;

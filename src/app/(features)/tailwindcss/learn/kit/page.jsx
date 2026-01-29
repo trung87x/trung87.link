@@ -1,6 +1,6 @@
-import { Button } from "@/ui/catalyst/button";
-import { Heading, Subheading } from "@/ui/catalyst/heading";
-import { Text } from "@/ui/catalyst/text";
+import { Button } from "@/components/catalyst/button";
+import { Heading, Subheading } from "@/components/catalyst/heading";
+import { Text } from "@/components/catalyst/text";
 
 export const metadata = {
   title: "Catalyst - Showcase & Learn",

@@ -1,4 +1,4 @@
-import { Badge } from "@/ui/catalyst/badge";
+import { Badge } from "@/components/catalyst/badge";
 
 export default function Example() {
   return (

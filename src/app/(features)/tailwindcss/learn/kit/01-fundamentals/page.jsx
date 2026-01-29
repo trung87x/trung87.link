@@ -1,8 +1,8 @@
-import { Button } from "@/ui/catalyst/button";
-import { Divider } from "@/ui/catalyst/divider";
-import { Heading, Subheading } from "@/ui/catalyst/heading";
-import { Link } from "@/ui/catalyst/link";
-import { Code, Strong, Text } from "@/ui/catalyst/text";
+import { Button } from "@/components/catalyst/button";
+import { Divider } from "@/components/catalyst/divider";
+import { Heading, Subheading } from "@/components/catalyst/heading";
+import { Link } from "@/components/catalyst/link";
+import { Code, Strong, Text } from "@/components/catalyst/text";
 
 export const metadata = {
   title: "Fundamentals - Catalyst Learn",

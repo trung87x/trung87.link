@@ -1,15 +1,15 @@
 "use client";
 
-import { Button } from "@/ui/catalyst/button";
+import { Button } from "@/components/catalyst/button";
 import {
   Dialog,
   DialogActions,
   DialogBody,
   DialogDescription,
   DialogTitle,
-} from "@/ui/catalyst/dialog";
-import { Field, Label } from "@/ui/catalyst/fieldset";
-import { Input } from "@/ui/catalyst/input";
+} from "@/components/catalyst/dialog";
+import { Field, Label } from "@/components/catalyst/fieldset";
+import { Input } from "@/components/catalyst/input";
 import { useState } from "react";
 
 export default function Example() {

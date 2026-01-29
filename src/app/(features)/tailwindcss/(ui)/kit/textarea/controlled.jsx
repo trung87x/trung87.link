@@ -1,7 +1,7 @@
 "use client";
 
-import { Field, Label } from "@/ui/catalyst/fieldset";
-import { Textarea } from "@/ui/catalyst/textarea";
+import { Field, Label } from "@/components/catalyst/fieldset";
+import { Textarea } from "@/components/catalyst/textarea";
 import { useState } from "react";
 
 export default function Example() {

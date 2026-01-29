@@ -1,10 +1,10 @@
-import { Link } from "@/ui/catalyst/link";
+import { Link } from "@/components/catalyst/link";
 import {
   Sidebar,
   SidebarBody,
   SidebarItem,
   SidebarSection,
-} from "@/ui/catalyst/sidebar";
+} from "@/components/catalyst/sidebar";
 import { Logo } from "./logo";
 
 export default function Example() {

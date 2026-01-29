@@ -3,8 +3,8 @@ import { useState, useRef, useEffect } from "react";
 import { FFmpeg } from "@ffmpeg/ffmpeg";
 import { toBlobURL, fetchFile } from "@ffmpeg/util";
 import JSZip from "jszip";
-import { Heading } from "@/ui/catalyst/heading";
-import { Button } from "@/ui/catalyst/button";
+import { Heading } from "@/components/catalyst/heading";
+import { Button } from "@/components/catalyst/button";
 import { ArrowUpTrayIcon, ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 
 export default function AudioToHlsConverter() {

@@ -1,20 +1,20 @@
-import { Avatar } from "@/ui/catalyst/avatar";
-import { Badge } from "@/ui/catalyst/badge";
-import { Button } from "@/ui/catalyst/button";
+import { Avatar } from "@/components/catalyst/avatar";
+import { Badge } from "@/components/catalyst/badge";
+import { Button } from "@/components/catalyst/button";
 import {
   DescriptionDetails,
   DescriptionList,
   DescriptionTerm,
-} from "@/ui/catalyst/description-list";
-import { Divider } from "@/ui/catalyst/divider";
-import { Heading, Subheading } from "@/ui/catalyst/heading";
+} from "@/components/catalyst/description-list";
+import { Divider } from "@/components/catalyst/divider";
+import { Heading, Subheading } from "@/components/catalyst/heading";
 import {
   Pagination,
   PaginationList,
   PaginationNext,
   PaginationPage,
   PaginationPrevious,
-} from "@/ui/catalyst/pagination";
+} from "@/components/catalyst/pagination";
 import {
   Table,
   TableBody,
@@ -22,8 +22,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/ui/catalyst/table";
-import { Code, Text } from "@/ui/catalyst/text";
+} from "@/components/catalyst/table";
+import { Code, Text } from "@/components/catalyst/text";
 
 export const metadata = {
   title: "Data Display - Catalyst Learn",

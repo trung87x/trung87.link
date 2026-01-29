@@ -1,7 +1,7 @@
 "use client";
 
-import { Checkbox, CheckboxField, CheckboxGroup } from "@/ui/catalyst/checkbox";
-import { Label } from "@/ui/catalyst/fieldset";
+import { Checkbox, CheckboxField, CheckboxGroup } from "@/components/catalyst/checkbox";
+import { Label } from "@/components/catalyst/fieldset";
 import { useState } from "react";
 
 const options = ["Show on events page", "Allow embedding"];

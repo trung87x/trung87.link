@@ -1,5 +1,5 @@
-import { Label } from "@/ui/catalyst/fieldset";
-import { Select } from "@/ui/catalyst/select";
+import { Label } from "@/components/catalyst/fieldset";
+import { Select } from "@/components/catalyst/select";
 import * as Headless from "@headlessui/react";
 
 export default function Example() {

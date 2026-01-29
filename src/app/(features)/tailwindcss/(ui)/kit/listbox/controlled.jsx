@@ -1,7 +1,7 @@
 'use client'
 
-import { Field, Label } from "@/ui/catalyst/fieldset";
-import { Listbox, ListboxLabel, ListboxOption } from "@/ui/catalyst/listbox";
+import { Field, Label } from "@/components/catalyst/fieldset";
+import { Listbox, ListboxLabel, ListboxOption } from "@/components/catalyst/listbox";
 import { useState } from "react";
 
 export default function Example() {

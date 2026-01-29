@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getRepoContent } from "@/lib/github";
+import { getRepoContent } from "@/utils/github";
 import { FolderIcon, DocumentTextIcon } from "@heroicons/react/24/outline";
 
 export const metadata = {

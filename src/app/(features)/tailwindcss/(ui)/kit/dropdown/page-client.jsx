@@ -1,6 +1,6 @@
 "use client"; // Đánh dấu đây là Client Component
 
-import PreviewWrapper from "@/lib/utils/preview-wrapper";
+import PreviewWrapper from "@/utils/ui/preview-wrapper";
 import Basic from "./basic";
 import ButtonStyle from "./button-style";
 import MenuPlacement from "./menu-placement";

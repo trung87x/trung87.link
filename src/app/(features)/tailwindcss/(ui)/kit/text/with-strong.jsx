@@ -1,4 +1,4 @@
-import { Strong, Text } from "@/ui/catalyst/text";
+import { Strong, Text } from "@/components/catalyst/text";
 
 export default function Example() {
   return (

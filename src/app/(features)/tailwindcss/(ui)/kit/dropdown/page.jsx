@@ -1,4 +1,4 @@
-import { getRaw } from "@/lib/utils/get-raw";
+import { getRaw } from "@/utils/ui/get-raw";
 import DropdownClient from "./page-client";
 
 const Page = () => {

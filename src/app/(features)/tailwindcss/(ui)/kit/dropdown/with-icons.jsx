@@ -5,7 +5,7 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu,
-} from "@/ui/catalyst/dropdown";
+} from "@/components/catalyst/dropdown";
 import {
   ArrowRightStartOnRectangleIcon,
   ChevronDownIcon,

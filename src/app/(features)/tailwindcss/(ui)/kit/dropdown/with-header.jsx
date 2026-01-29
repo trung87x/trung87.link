@@ -5,7 +5,7 @@ import {
   DropdownHeader,
   DropdownItem,
   DropdownMenu,
-} from "@/ui/catalyst/dropdown";
+} from "@/components/catalyst/dropdown";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
 
 export default function Example({ signOut }) {

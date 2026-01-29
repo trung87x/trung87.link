@@ -4,7 +4,7 @@ import {
   SidebarItem,
   SidebarLabel,
   SidebarSection,
-} from "@/ui/catalyst/sidebar";
+} from "@/components/catalyst/sidebar";
 import {
   Cog6ToothIcon,
   HomeIcon,

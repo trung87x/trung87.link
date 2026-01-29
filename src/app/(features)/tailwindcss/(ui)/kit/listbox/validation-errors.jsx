@@ -1,5 +1,5 @@
-import { ErrorMessage, Field, Label } from "@/ui/catalyst/fieldset";
-import { Listbox, ListboxLabel, ListboxOption } from "@/ui/catalyst/listbox";
+import { ErrorMessage, Field, Label } from "@/components/catalyst/fieldset";
+import { Listbox, ListboxLabel, ListboxOption } from "@/components/catalyst/listbox";
 
 export default function Example({ errors }) {
   return (

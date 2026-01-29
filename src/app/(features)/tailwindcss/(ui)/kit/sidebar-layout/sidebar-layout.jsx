@@ -1,4 +1,4 @@
-import { Avatar } from "@/ui/catalyst/avatar";
+import { Avatar } from "@/components/catalyst/avatar";
 import {
   Dropdown,
   DropdownButton,
@@ -6,13 +6,13 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu,
-} from "@/ui/catalyst/dropdown";
+} from "@/components/catalyst/dropdown";
 import {
   Navbar,
   NavbarItem,
   NavbarSection,
   NavbarSpacer,
-} from "@/ui/catalyst/navbar";
+} from "@/components/catalyst/navbar";
 import {
   Sidebar,
   SidebarBody,
@@ -23,8 +23,8 @@ import {
   SidebarLabel,
   SidebarSection,
   SidebarSpacer,
-} from "@/ui/catalyst/sidebar";
-import { SidebarLayout } from "@/ui/catalyst/sidebar-layout";
+} from "@/components/catalyst/sidebar";
+import { SidebarLayout } from "@/components/catalyst/sidebar-layout";
 import {
   ArrowRightStartOnRectangleIcon,
   ChevronDownIcon,

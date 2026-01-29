@@ -1,5 +1,5 @@
-import { ErrorMessage, Field, Label } from "@/ui/catalyst/fieldset";
-import { Select } from "@/ui/catalyst/select";
+import { ErrorMessage, Field, Label } from "@/components/catalyst/fieldset";
+import { Select } from "@/components/catalyst/select";
 
 export default function Example({ errors }) {
   return (

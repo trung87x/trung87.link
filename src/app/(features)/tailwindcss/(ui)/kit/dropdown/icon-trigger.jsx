@@ -3,7 +3,7 @@ import {
   DropdownButton,
   DropdownItem,
   DropdownMenu,
-} from "@/ui/catalyst/dropdown";
+} from "@/components/catalyst/dropdown";
 import { EllipsisHorizontalIcon } from "@heroicons/react/16/solid";
 
 export default function Example({ deleteUser }) {

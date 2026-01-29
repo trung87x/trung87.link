@@ -1,4 +1,4 @@
-import { Text, TextLink } from "@/ui/catalyst/text";
+import { Text, TextLink } from "@/components/catalyst/text";
 
 export default function Example() {
   return (

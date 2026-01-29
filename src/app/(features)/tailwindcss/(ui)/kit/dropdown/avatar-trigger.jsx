@@ -1,11 +1,11 @@
-import { AvatarButton } from "@/ui/catalyst/avatar";
+import { AvatarButton } from "@/components/catalyst/avatar";
 import {
   Dropdown,
   DropdownButton,
   DropdownDivider,
   DropdownItem,
   DropdownMenu,
-} from "@/ui/catalyst/dropdown";
+} from "@/components/catalyst/dropdown";
 
 export default function Example({ currentUser, signOut }) {
   return (
