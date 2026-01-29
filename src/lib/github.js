@@ -12,10 +12,16 @@ async function getRepoTree() {
   const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/git/trees/${BRANCH}?recursive=1`;
 
   try {
+    const headers = {
+      Accept: "application/vnd.github.v3+json",
+    };
+
+    if (process.env.GITHUB_TOKEN) {
+      headers.Authorization = `token ${process.env.GITHUB_TOKEN}`;
+    }
+
     const res = await fetch(url, {
-      headers: {
-        Accept: "application/vnd.github.v3+json",
-      },
+      headers,
       next: { revalidate: 3600 },
     });
 
@@ -124,11 +130,26 @@ export async function getRepoContent(path = "") {
  */
 export async function getFileContent(path) {
   const cleanPath = path.replace(/^\//, "");
-  const rawUrl = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${cleanPath}`;
+  // Use the API with the raw media type to get the content directly
+  const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${cleanPath}`;
 
   try {
-    const res = await fetch(rawUrl);
-    if (!res.ok) return null;
+    const headers = {
+      Accept: "application/vnd.github.v3.raw", // Request raw content
+    };
+
+    if (process.env.GITHUB_TOKEN) {
+      headers.Authorization = `token ${process.env.GITHUB_TOKEN}`;
+    }
+
+    const res = await fetch(apiUrl, { headers });
+
+    if (!res.ok) {
+      console.error(
+        `Failed to fetch file content: ${res.status} ${res.statusText}`,
+      );
+      return null;
+    }
 
     const rawContent = await res.text();
 
