@@ -1,5 +1,5 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
-import { classNames } from "lib/utils/class-names";
+import { classNames } from "@/utils/ui/class-names";
 
 const tiers = [
   {
