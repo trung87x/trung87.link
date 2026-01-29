@@ -21,6 +21,7 @@ export default async function BlogExplorerPage() {
   // Smart Detection:
   // Folders that are NOT Single Post Folders -> Categories
   // Files OR Single Post Folders -> Articles
+  // .
   const folders = content.filter(
     (item) => item.type === "dir" && !item.isSinglePost,
   );
