@@ -1,0 +1,11 @@
+"use server";
+
+import { signOut, signIn } from "@/lib/auth";
+
+export async function handleSignOut(options) {
+  return await signOut(options);
+}
+
+export async function handleSignIn(provider, options) {
+  return await signIn(provider, options);
+}

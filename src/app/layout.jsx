@@ -15,6 +15,7 @@ import {
 } from "ui/catalyst/sidebar";
 import { StackedLayout } from "ui/catalyst/stacked-layout";
 import Link from "next/link";
+import AuthButton from "@/components/auth/AuthButton";
 
 export const metadata = {
   title: "Trang web của tôi",
@@ -81,7 +82,8 @@ export default function RootLayout({ children }) {
                 </NavbarItem>
               </NavbarSection>
               <NavbarSpacer className="" />
-              <NavbarSection className="">
+              <NavbarSection className="flex items-center gap-4">
+                <AuthButton />
                 <NavbarItem href="/contact" className="" current={false}>
                   Liên hệ
                 </NavbarItem>
