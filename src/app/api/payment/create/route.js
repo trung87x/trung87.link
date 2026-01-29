@@ -3,6 +3,40 @@ import { auth } from "@/utils/auth";
 import { NextResponse } from "next/server";
 import { createClient } from "@/utils/supabase/server";
 
+/**
+ * @openapi
+ * /api/payment/create:
+ *   post:
+ *     summary: Tạo link thanh toán PayOS
+ *     description: API này dùng để tạo đơn hàng và lấy link thanh toán từ PayOS cho một khóa học cụ thể.
+ *     tags:
+ *       - Payment
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - courseId
+ *             properties:
+ *               courseId:
+ *                 type: string
+ *                 description: ID của khóa học cần mua (ví dụ react.school)
+ *               amount:
+ *                 type: number
+ *                 description: Số tiền thanh toán (mặc định 500,000)
+ *               description:
+ *                 type: string
+ *                 description: Mô tả thanh toán
+ *     responses:
+ *       200:
+ *         description: Trả về thông tin link thanh toán từ PayOS
+ *       401:
+ *         description: Chưa đăng nhập
+ *       500:
+ *         description: Lỗi máy chủ hoặc cấu hình
+ */
 export async function POST(req) {
   try {
     // Check SQL connection before proceeding

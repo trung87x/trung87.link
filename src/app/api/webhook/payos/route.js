@@ -2,6 +2,20 @@ import { createAdminClient } from "@/utils/supabase/server";
 import payos from "@/utils/payos";
 import { NextResponse } from "next/server";
 
+/**
+ * @openapi
+ * /api/webhook/payos:
+ *   post:
+ *     summary: Nhận Webhook từ PayOS
+ *     description: API này dùng để nhận thông báo thanh toán thành công từ PayOS và kích hoạt khóa học cho người dùng.
+ *     tags:
+ *       - Webhook
+ *     responses:
+ *       200:
+ *         description: Phản hồi thành công cho PayOS
+ *       400:
+ *         description: Xác thực Webhook thất bại
+ */
 export async function POST(req) {
   const supabaseService = createAdminClient();
   try {
