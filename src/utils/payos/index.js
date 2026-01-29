@@ -16,7 +16,10 @@ const getPayOSClass = (pkg) => {
 
 const PayOSClass = getPayOSClass(PayOS);
 
-const payos = PayOSClass ? new PayOSClass(clientID, apiKey, checksumKey) : null;
+const payos =
+  PayOSClass && clientID && apiKey && checksumKey
+    ? new PayOSClass(clientID, apiKey, checksumKey)
+    : null;
 
 export { payos };
 export default payos;
