@@ -10,7 +10,23 @@ Mục tiêu: Hoàn thiện tính năng quản lý khóa học (Thêm/Sửa/Xóa)
 - Frontend: Tạo trang `/admin/courses/[id]` với form pre-fill dữ liệu.
 - Navigation: Gắn link vào nút "Sửa" ở trang danh sách.
 
-## 2. Kiểm thử Tự động (Playwright)
+3. **Dynamic Pricing Fix**:
+   - Truy xuất giá tiền từ Database thay vì gán cứng 10k.
+   - Đồng bộ Slug (`react.school`) để query DB chính xác.
+
+## 2. Các thay đổi cụ thể
+
+### AccessDenied Component (`src/components/auth/AccessDenied.jsx`)
+
+- Nhận thêm prop `courseData` để hiển thị giá tiền thực tế.
+- Xóa bỏ việc fix cứng giá 10k trong code UI và API call.
+
+### Layouts
+
+- `src/app/(features)/blog/react.school/layout.jsx`: Fetch và truyền dữ liệu khóa học.
+- `src/app/(features)/blog/developer.mozilla.org/layout.jsx`: Fetch và truyền dữ liệu khóa học.
+
+## 3. Kiểm thử Tự động (Playwright)
 
 File test: `tests/admin-courses.spec.js`
 

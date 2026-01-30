@@ -11,10 +11,14 @@ import Link from "next/link";
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-function AccessDeniedContent({ userEmail, courseId }) {
+function AccessDeniedContent({ userEmail, courseId, courseData }) {
   const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
   const paymentStatus = searchParams.get("status");
+
+  // Use courseData if provided, fallback to courseId
+  const displayTitle = courseData?.title || courseId;
+  const displayPrice = courseData?.price_sale || courseData?.price || 10000;
 
   // Automatically verify payment if returning from payment gateway
   useEffect(() => {
@@ -59,8 +63,8 @@ function AccessDeniedContent({ userEmail, courseId }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           courseId,
-          amount: 10000,
-          description: `Mua ${courseId} ${userEmail}`,
+          amount: displayPrice,
+          description: `Mua ${displayTitle} ${userEmail}`,
         }),
       });
 
@@ -130,7 +134,7 @@ function AccessDeniedContent({ userEmail, courseId }) {
           </p>
           <p className="text-sm leading-relaxed text-gray-400">
             Rất tiếc, tài khoản này chưa đăng ký khóa học:{" "}
-            <strong className="text-white">{courseId}</strong>.
+            <strong className="text-white">{displayTitle}</strong>.
           </p>
         </div>
 
@@ -143,7 +147,12 @@ function AccessDeniedContent({ userEmail, courseId }) {
             <SparklesIcon
               className={`h-5 w-5 ${loading ? "animate-spin" : ""}`}
             />
-            {loading ? "Đang tạo mã thanh toán..." : "Mua khóa học ngay (10k)"}
+            {loading
+              ? "Đang tạo mã thanh toán..."
+              : `Mua khóa học ngay (${new Intl.NumberFormat("vi-VN", {
+                  style: "currency",
+                  currency: "VND",
+                }).format(displayPrice)})`}
           </button>
 
           {/* New Manual Verify Button */}

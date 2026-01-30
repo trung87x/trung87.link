@@ -19,6 +19,7 @@ Tài liệu này tổng hợp toàn bộ module Admin Courses, bao gồm tính n
 
 - **Server Action**: Sử dụng `createCourse` và `updateCourse` trong `actions.js` để thao tác dữ liệu an toàn.
 - **Auth Bypass**: Cơ chế đặc biệt cho phép Playwright "giả danh" Admin bằng header `x-e2e-bypass`.
+- **Dynamic Pricing**: Giá tiền được fetch từ Database thông qua Server Layouts và truyền vào `AccessDenied`. Đã đồng bộ Slug `react.school` và loại bỏ hoàn toàn các giá trị fix cứng (10k).
 
 ## 3. Kiểm thử (Testing)
 

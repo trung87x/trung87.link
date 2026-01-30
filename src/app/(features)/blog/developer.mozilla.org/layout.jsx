@@ -11,10 +11,19 @@ export default async function MDNLayout({ children }) {
     session &&
     !(await isStudent(session?.user?.email, "developer.mozilla.org"))
   ) {
+    const { createClient } = await import("@/utils/supabase/server");
+    const supabase = await createClient();
+    const { data: courseData } = await supabase
+      .from("courses")
+      .select("title, price, price_sale")
+      .eq("slug", "developer.mozilla.org")
+      .single();
+
     return (
       <AccessDenied
         userEmail={session?.user?.email}
         courseId="developer.mozilla.org"
+        courseData={courseData}
       />
     );
   }
