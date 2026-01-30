@@ -25,3 +25,8 @@
   - [x] Update schema.sql to remove FK constraint <!-- id: 78 -->
   - [x] Implement auto-create profile logic in NextAuth <!-- id: 79 -->
   - [x] Auto-assign Admin role for specific email <!-- id: 80 -->
+- [x] Security Enforcement <!-- id: 81 -->
+  - [x] Update `src/utils/auth/index.js` for role check in middleware <!-- id: 82 -->
+  - [x] Implement `auth()` role check in `src/app/admin/layout.jsx` <!-- id: 83 -->
+  - [x] Verify non-admin users are blocked <!-- id: 84 -->
+  - [x] Create E2E test for role-based access <!-- id: 85 -->

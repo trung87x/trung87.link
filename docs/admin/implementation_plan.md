@@ -47,12 +47,21 @@ Tạo khu vực `/admin` dành riêng cho quản trị viên.
 - Cập nhật `/api/payment/create` để tự động lấy giá tiền từ bảng `courses` dựa trên `courseId`.
 - Cập nhật logic Webhook để cập nhật trạng thái đơn hàng vào Database.
 
-### 4. Phân quyền (Security)
+### 4. Phân quyền (Security Enforcement)
 
-- Tạo Middleware hoặc kiểm tra Session để chỉ cho phép User có `role === 'admin'` truy cập vào các trang `/admin`.
+Hiện tại hệ thống chỉ kiểm tra đăng nhập cơ bản. Cần bổ sung các lớp bảo mật sau:
+
+- **Middleware Enforcement**:
+  - Cập nhật `src/middleware.js` (qua `src/utils/auth/index.js`) để kiểm tra `auth?.user?.role === 'admin'`.
+  - Tự động chuyển hướng người dùng không có quyền về trang chủ `/` hoặc `/unauthorized`.
+- **Layout-level Guard**:
+  - Bổ sung kiểm tra server-side trong `src/app/admin/layout.jsx` bằng cách gọi `auth()`.
+  - Chặn đứng truy cập ngay cả khi middleware bị vượt qua (ví dụ: trong môi trường dev hoặc test).
 
 ## Kế hoạch kiểm tra
 
-1. Kiểm tra việc tạo đơn hàng với giá tiền động từ DB.
-2. Kiểm tra các chức năng CRUD (Thêm/Sửa/Xóa) của Admin.
-3. Kiểm tra tính bảo mật: Người dùng bình thường không thể vào trang Admin.
+1. **Kiểm tra đăng nhập**:
+   - Admin (`job.dinhquangtrung@gmail.com`) truy cập bình thường.
+   - User thường (email khác) bị chặn và redirect.
+2. **Kiểm tra tính năng CRUD**: Đảm bảo các Server Actions trong `/admin` cũng kiểm tra quyền admin.
+3. **Kiểm tra Bypass**: Đảm bảo chế độ Bypass cho E2E test vẫn hoạt động với role `admin` giả lập.

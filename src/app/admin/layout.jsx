@@ -20,8 +20,17 @@ import {
   ReceiptRefundIcon,
   ArrowLeftIcon,
 } from "@heroicons/react/24/outline";
+import { auth } from "@/utils/auth";
+import { redirect } from "next/navigation";
 
-export default function AdminLayout({ children }) {
+export default async function AdminLayout({ children }) {
+  const session = await auth();
+
+  // Guard: Must be admin
+  if (session?.user?.role !== "admin") {
+    redirect("/");
+  }
+
   return (
     <SidebarLayout
       navbar={

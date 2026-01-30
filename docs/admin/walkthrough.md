@@ -17,29 +17,38 @@ Lỗi xảy ra do cả trang Admin và Trang chủ đều cố gắng chiếm gi
 
 Các trang thông tin cốt lõi đã được gom vào nhóm **`(site-info)`**:
 
-- [Trang chủ](<file:///c:/Users/home/Github/work/trung87.link/src/app/(site-info)/page.jsx>)
-- [Giới thiệu](<file:///c:/Users/home/Github/work/trung87.link/src/app/(site-info)/about/page.jsx>)
-- [Liên hệ](<file:///c:/Users/home/Github/work/trung87.link/src/app/(site-info)/contact/page.jsx>)
+- [Trang chủ](<src/app/(site-info)/page.jsx>)
+- [Giới thiệu](<src/app/(site-info)/about/page.jsx>)
+- [Liên hệ](<src/app/(site-info)/contact/page.jsx>)
 
 ### 3. Hệ thống Admin đã sẵn sàng
 
 Mọi tính năng quản lý khóa học, người dùng và đơn hàng hiện đã hoạt động ổn định tại địa chỉ mới:
 👉 **Link Admin**: [http://localhost:3000/admin](http://localhost:3000/admin)
 
-    ### 4. Hệ thống Xác thực & Phân quyền (Mới)
+### 4. Hệ thống Xác thực & Phân quyền
 
-    Đã nâng cấp cơ chế Auth để hỗ trợ người dùng Google Login:
-    - **Tự động tạo Profile**: Khi đăng nhập lần đầu, hệ thống sẽ tự động tạo bản ghi trong bảng `profiles` tại Supabase.
-    - **Tự động cấp quyền Admin**: Email `job.dinhquangtrung@gmail.com` sẽ được đặc cách tự động nhận quyền `admin` ngay khi đăng nhập.
-    - **Database**: Bảng `profiles` đã được tách độc lập để không phụ thuộc vào `auth.users` của Supabase.
+Đã nâng cấp cơ chế Auth để hỗ trợ người dùng Google Login:
+
+- **Tự động tạo Profile**: Khi đăng nhập lần đầu, hệ thống sẽ tự động tạo bản ghi trong bảng `profiles` tại Supabase.
+- **Tự động cấp quyền Admin**: Email `job.dinhquangtrung@gmail.com` sẽ được đặc cách tự động nhận quyền `admin` ngay khi đăng nhập.
+- **Database**: Bảng `profiles` đã được tách độc lập để không phụ thuộc vào `auth.users` của Supabase.
+
+### 5. Bảo mật Đa lớp (Security Enforcement)
+
+Để đảm bảo an toàn tuyệt đối cho khu vực `/admin`, mình đã triển khai cơ chế kiểm tra quyền admin ở hai cấp độ:
+
+- **Middleware**: Kiểm tra role ngay trong session. Nếu không phải admin, người dùng sẽ bị chặn ngay lập tức qua `src/utils/auth/index.js`.
+- **Layout Guard**: Thêm lớp bảo mật `async auth()` trong `AdminLayout` để chặn đứng truy cập trái phép cấp độ server component.
+- **Verification**: Đã bổ sung test case vào `tests/auth.spec.js` và xác nhận toàn bộ hệ thống test auth đều vượt qua.
 
 ## Kết quả cuối cùng
 
-Cấu trúc dự án của bạn hiện tại cực kỳ chuẩn mực và không còn lỗi:
+Cấu trúc dự án và hệ thống bảo mật hiện tại cực kỳ chuẩn mực:
 
-- `admin/`: Khu vực quản trị.
+- `admin/`: Khu vực quản trị (Đã được bảo mật bằng Role: Admin).
 - `(site-info)/`: Nội dung website chính.
 - `(features)/`: Các tính năng bổ trợ.
 - `(auth)/`: Đăng nhập/Đăng ký.
 
-Bây giờ bạn có thể tiếp tục trải nghiệm và tự do quản lý cơ sở dữ liệu của mình!
+Hệ thống của bạn hiện đã sẵn sàng và an toàn!

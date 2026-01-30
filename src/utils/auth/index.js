@@ -34,8 +34,7 @@ const {
       // Protect /admin: must be logged in and be an admin
       if (isOnAdmin) {
         if (!isLoggedIn) return false;
-        // The role check will be more robust in the session/page level,
-        // but we can block base access here if the role is already session-synced.
+        if (auth.user.role !== "admin") return false;
         return true;
       }
 

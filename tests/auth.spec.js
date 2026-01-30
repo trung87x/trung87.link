@@ -36,6 +36,32 @@ test.describe("Authentication Feature", () => {
       await expect(page).toHaveURL(/\/admin/);
     });
 
+    test("Authenticated user with 'user' role should NOT access /admin", async ({
+      page,
+      context,
+    }) => {
+      // Set the bypass cookies for a normal user
+      await context.addCookies([
+        {
+          name: "x-e2e-bypass",
+          value: "true",
+          domain: "localhost",
+          path: "/",
+        },
+        {
+          name: "x-e2e-role",
+          value: "user",
+          domain: "localhost",
+          path: "/",
+        },
+      ]);
+
+      await page.goto("/admin/dashboard");
+      // Right now this will FAIL to block, proving the vulnerability.
+      // After fix, this should expect a redirect to / or /signin
+      await expect(page).not.toHaveURL(/\/admin/);
+    });
+
     test("Signin page has correct elements", async ({ page }) => {
       await page.goto("/signin");
       await expect(
