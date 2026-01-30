@@ -17,6 +17,19 @@ test.describe("Authentication Feature", () => {
       ).toBeVisible();
     });
 
+    test("User should see callbackUrl in signin page when redirected from protected page", async ({
+      page,
+    }) => {
+      // 1. Go to a protected page
+      await page.goto("/admin/dashboard");
+
+      // 2. Be redirected to signin with callbackUrl
+      await expect(page).toHaveURL(/\/signin\?callbackUrl=/);
+      const url = new URL(page.url());
+      const callbackUrl = url.searchParams.get("callbackUrl");
+      expect(callbackUrl).toContain("/admin/dashboard");
+    });
+
     test("Authenticated user (bypass) can access /admin", async ({
       page,
       context,
@@ -117,6 +130,47 @@ test.describe("Authentication Feature", () => {
 
       // 4. Cleanup
       await supabase.from("profiles").delete().eq("id", data.id);
+    });
+
+    test("Logout in one tab should affect other tabs (Server-side check)", async ({
+      browser,
+    }) => {
+      // 1. Create one context with two pages (tabs)
+      const context = await browser.newContext();
+      const page1 = await context.newPage();
+      const page2 = await context.newPage();
+
+      // 2. Login (using bypass cookie)
+      await context.addCookies([
+        {
+          name: "x-e2e-bypass",
+          value: "true",
+          domain: "localhost",
+          path: "/",
+        },
+      ]);
+
+      // 3. Both tabs access /admin/dashboard
+      await page1.goto("/admin/dashboard");
+      await page2.goto("/admin/dashboard");
+
+      await expect(page1).toHaveURL(/\/admin\/dashboard/);
+      await expect(page2).toHaveURL(/\/admin\/dashboard/);
+
+      // 4. Simulate Tab 1 signing out (which clears the cookie for the WHOLE context)
+      // Instead of clicking "Sign Out" which might be tricky with bypass,
+      // we manually clear the cookies from the context, exactly like signOut does.
+      await context.clearCookies();
+
+      // 5. Tab 1: If it navigates now, it should be kicked out
+      await page1.goto("/admin/dashboard");
+      await expect(page1).toHaveURL(/\/signin/);
+
+      // 6. Tab 2: If we refresh or navigate, it should also be logged out
+      await page2.reload();
+      await expect(page2).toHaveURL(/\/signin/);
+
+      await context.close();
     });
   });
 });

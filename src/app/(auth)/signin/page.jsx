@@ -1,7 +1,10 @@
 import { signIn } from "@/utils/auth";
 import { SparklesIcon } from "@heroicons/react/24/outline";
 
-export default function SignInPage() {
+export default async function SignInPage({ searchParams }) {
+  const { callbackUrl } = await searchParams;
+  const redirectTo = callbackUrl || "/";
+
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0a0a0a] px-4 font-sans">
       {/* Background Glows */}
@@ -27,7 +30,7 @@ export default function SignInPage() {
             <form
               action={async () => {
                 "use server";
-                await signIn("google", { redirectTo: "/" });
+                await signIn("google", { redirectTo });
               }}
             >
               <button

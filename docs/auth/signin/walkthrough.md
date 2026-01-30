@@ -26,7 +26,14 @@ Hệ thống đã chuyển từ danh sách tĩnh sang quản lý động qua Dat
   2. **Đồng bộ Quyền**: Tự động nhận diện quyền `admin` (cho email chỉ định) hoặc `user`.
   3. **Kiểm tra Mua khóa học**: Xác thực quyền truy cập dựa trên bảng `enrollments` trong Supabase.
 
-### 4. Giao diện Từ chối truy cập (Access Denied)
+### 4. Điều hướng sau Đăng nhập (Post-Login Redirect)
+
+Hệ thống ghi nhớ trang bạn đang cố gắng truy cập trước khi đăng nhập:
+
+- **Logic**: Khi truy cập một trang bảo mật (ví dụ: một bài học Premium), Middleware sẽ tự động gán tham số `callbackUrl` vào đường dẫn `/signin`.
+- **Xử lý**: Trang Đăng nhập sẽ trích xuất `callbackUrl` này và yêu cầu Google chuyển hướng bạn quay lại đúng trang đó ngay sau khi đăng nhập thành công, thay vì đưa bạn về Trang chủ.
+
+### 5. Giao diện Từ chối truy cập (Access Denied)
 
 Nếu người dùng đã đăng nhập nhưng chưa mua khóa học, họ sẽ thấy trang thông báo hướng dẫn cách đăng ký.
 ![Access Denied Preview](file:///c:/Users/home/Github/work/trung87.link/src/components/auth/AccessDenied.jsx#L5-L55)
