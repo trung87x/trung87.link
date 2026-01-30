@@ -36,7 +36,7 @@ export async function POST(req) {
       const { data: pendingData, error: lookupError } = await supabaseService
         .from("enrollments")
         .select("user_email, course_id")
-        .eq("payment_id", `PENDING_${webhookData.orderCode}`)
+        .eq("payment_id", String(webhookData.orderCode)) // Exact match now
         .single();
 
       if (pendingData) {
@@ -63,8 +63,10 @@ export async function POST(req) {
             {
               user_email: email.toLowerCase(),
               course_id: courseId,
-              payment_id: webhookData.paymentLinkId, // Update to real link ID
+              payment_id: String(webhookData.orderCode), // Keep consistent
               amount: webhookData.amount,
+              status: "paid", // Update status
+              updated_at: new Date().toISOString(),
             },
           ],
           { onConflict: "user_email,course_id" },

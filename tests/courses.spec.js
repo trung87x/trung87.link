@@ -1,31 +1,14 @@
 const { test, expect } = require("@playwright/test");
-const { createClient } = require("@supabase/supabase-js");
-const dotenv = require("dotenv");
+const { getSupabaseAdmin } = require("./utils/supabase");
 
-// Load env vars
-dotenv.config({ path: ".env.local" });
-dotenv.config();
+test.describe("Courses Feature", () => {
+  test("Should verify Admin (ServiceRole) can create and delete courses", async () => {
+    const supabase = getSupabaseAdmin();
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-test.describe("Admin Database Permission Check", () => {
-  test("Service Role Key should have permissions to write to courses table", async () => {
-    console.log("Checking DB Connection...");
-    console.log("Supabase URL:", supabaseUrl ? "FOUND" : "MISSING");
-    console.log(
-      "Service Role Key:",
-      serviceRoleKey ? "FOUND" : "MISSING (Critical)",
-    );
-
-    if (!supabaseUrl || !serviceRoleKey) {
-      throw new Error(
-        "Missing Supabase credentials. Cannot test Admin writes.",
-      );
+    if (!supabase) {
+      test.skip("Skipping DB test because Supabase credentials are missing");
+      return;
     }
-
-    // Create Admin Client
-    const supabase = createClient(supabaseUrl, serviceRoleKey);
     const timestamp = Date.now();
     const testCourse = {
       title: `DB Check Course ${timestamp}`,

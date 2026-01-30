@@ -87,8 +87,9 @@ export async function POST(req) {
         {
           user_email: session.user.email.toLowerCase(),
           course_id: courseId,
-          payment_id: `PENDING_${orderCode}`,
+          payment_id: String(orderCode), // Store the Order Code as the identifier
           amount: finalAmount,
+          status: "pending", // Explicit status
         },
       ],
       { onConflict: "user_email,course_id" },

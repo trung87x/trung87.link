@@ -51,7 +51,7 @@ export async function isStudent(email, courseSlug) {
     .select("id")
     .eq("user_email", email.toLowerCase())
     .eq("course_id", courseSlug)
-    .not("payment_id", "ilike", "PENDING_%")
+    .eq("status", "paid") // Clean status check
     .single();
 
   return !!data && !error;

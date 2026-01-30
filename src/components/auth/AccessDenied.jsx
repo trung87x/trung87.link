@@ -16,13 +16,38 @@ function AccessDeniedContent({ userEmail, courseId }) {
   const searchParams = useSearchParams();
   const paymentStatus = searchParams.get("status");
 
-  // Automatically refresh if returning from payment
+  // Automatically verify payment if returning from payment gateway
   useEffect(() => {
     if (paymentStatus === "PAID") {
-      const timer = setTimeout(() => {
-        window.location.href = `/blog/${courseId}`;
-      }, 3000);
-      return () => clearTimeout(timer);
+      const verifyPayment = async () => {
+        try {
+          const res = await fetch("/api/payment/verify", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ courseId }),
+          });
+          const data = await res.json();
+          if (data.success && data.status === "PAID") {
+            window.location.href = `/blog/${courseId}`;
+          } else {
+            console.log("Payment not verified yet:", data);
+            // Optional: Show error or keep retrying?
+            // For now, just let them see the "Success" screen but maybe it failed.
+            // Actually, if it failed, we should probably toggle state.
+            // But existing code showed success UI immediately.
+
+            // If failed, user is stuck on "Success" screen but access denied next time.
+            // Let's add a small redirect anyway for safety after a delay?
+            setTimeout(() => {
+              window.location.href = `/blog/${courseId}`;
+            }, 3000);
+          }
+        } catch (error) {
+          console.error("Verification failed", error);
+        }
+      };
+
+      verifyPayment();
     }
   }, [paymentStatus, courseId]);
 
@@ -119,6 +144,39 @@ function AccessDeniedContent({ userEmail, courseId }) {
               className={`h-5 w-5 ${loading ? "animate-spin" : ""}`}
             />
             {loading ? "Đang tạo mã thanh toán..." : "Mua khóa học ngay (10k)"}
+          </button>
+
+          {/* New Manual Verify Button */}
+          {/* New Manual Verify Button */}
+          <button
+            onClick={async () => {
+              setLoading(true);
+              try {
+                const res = await fetch("/api/payment/verify", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ courseId }),
+                });
+                const data = await res.json();
+                if (data.success && data.status === "PAID") {
+                  window.location.href = `/blog/${courseId}`;
+                } else {
+                  alert(
+                    "Hệ thống chưa nhận được thanh toán. Vui lòng thử lại sau 30s hoặc kiểm tra email.",
+                  );
+                }
+              } catch (e) {
+                alert("Lỗi kết nối: " + e.message);
+              } finally {
+                setLoading(false);
+              }
+            }}
+            type="button"
+            disabled={loading}
+            className="flex w-full items-center justify-center gap-2 rounded-xl border border-blue-500/30 bg-blue-500/10 py-3 font-medium text-blue-400 transition-all hover:bg-blue-500/20"
+          >
+            <CheckCircleIcon className="h-5 w-5" />
+            Tôi đã thanh toán (Kiểm tra lại)
           </button>
 
           <Link
