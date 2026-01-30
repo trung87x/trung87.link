@@ -18,8 +18,8 @@ import Link from "next/link";
 import AuthButton from "@/components/auth/AuthButton";
 
 export const metadata = {
-  title: "Trang web của tôi",
-  description: "Mô tả dự án",
+  title: "Trung87 - Học Lập Trình",
+  description: "Trang web chia sẻ kiến thức lập trình của Trung87",
 };
 
 export default function RootLayout({ children }) {

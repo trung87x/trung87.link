@@ -34,7 +34,7 @@ function AccessDeniedContent({ userEmail, courseId }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           courseId,
-          amount: 500000,
+          amount: 10000,
           description: `Mua ${courseId} ${userEmail}`,
         }),
       });
@@ -118,7 +118,7 @@ function AccessDeniedContent({ userEmail, courseId }) {
             <SparklesIcon
               className={`h-5 w-5 ${loading ? "animate-spin" : ""}`}
             />
-            {loading ? "Đang tạo mã thanh toán..." : "Mua khóa học ngay (500k)"}
+            {loading ? "Đang tạo mã thanh toán..." : "Mua khóa học ngay (10k)"}
           </button>
 
           <Link

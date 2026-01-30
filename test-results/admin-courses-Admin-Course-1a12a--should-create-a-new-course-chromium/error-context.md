@@ -1,0 +1,56 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - navigation [ref=e5]:
+        - generic [ref=e6]:
+          - link "Trang chủ" [ref=e8] [cursor=pointer]:
+            - /url: /
+          - link "Page examples" [ref=e10] [cursor=pointer]:
+            - /url: /page-examples
+          - link "Tailwind CSS" [ref=e12] [cursor=pointer]:
+            - /url: /tailwindcss
+          - link "Blocks" [ref=e14] [cursor=pointer]:
+            - /url: /tailwindcss/learn/blocks
+          - link "Kit" [ref=e16] [cursor=pointer]:
+            - /url: /tailwindcss/learn/kit
+          - link "Bricks builder" [ref=e18] [cursor=pointer]:
+            - /url: /bricksbuilder
+          - link "Lunar New Year 2026" [ref=e20] [cursor=pointer]:
+            - /url: /lunar-new-year/2026
+          - link "Convert audio to HLS" [ref=e22] [cursor=pointer]:
+            - /url: /convert/audio-to-hls
+          - link "Cloudflare R2" [ref=e24] [cursor=pointer]:
+            - /url: /cloudflare/r2
+          - link "Blog" [ref=e26] [cursor=pointer]:
+            - /url: /blog
+          - link "Heroicons" [ref=e28] [cursor=pointer]:
+            - /url: /heroicons
+        - generic [ref=e29]:
+          - button "Đăng nhập với Google" [ref=e31]:
+            - img [ref=e32]
+            - text: Đăng nhập với Google
+          - link "Liên hệ" [ref=e38] [cursor=pointer]:
+            - /url: /contact
+    - main [ref=e39]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e46]: ⚛
+          - heading "Chào mừng trở lại" [level=1] [ref=e47]
+          - paragraph [ref=e48]: Đăng nhập để tiếp tục lộ trình học tại React School
+        - generic [ref=e50]:
+          - button "Tiếp tục với Google" [ref=e52]:
+            - img [ref=e53]
+            - text: Tiếp tục với Google
+          - generic [ref=e62]: Hoặc
+          - paragraph [ref=e63]:
+            - text: Bằng cách đăng nhập, bạn đồng ý với
+            - link "Điều khoản dịch vụ" [ref=e64] [cursor=pointer]:
+              - /url: "#"
+        - paragraph [ref=e66]:
+          - img [ref=e67]
+          - text: Hệ thống học tập bảo mật và riêng tư
+  - alert [ref=e69]
+```

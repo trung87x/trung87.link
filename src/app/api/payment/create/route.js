@@ -71,15 +71,24 @@ export async function POST(req) {
     const orderCode = Number(String(Date.now()).slice(-9));
     const domain = process.env.NEXTAUTH_URL || "http://localhost:3000";
 
-    // 2. IMPORTANT: Save pending enrollment to DB to track user/course
-    // This allows us to use a short description for PayOS while keeping all data
+    // 2. Fetch course details from DB for dynamic pricing
+    const { data: courseData } = await supabase
+      .from("courses")
+      .select("price, price_sale")
+      .eq("slug", courseId)
+      .single();
+
+    const finalAmount =
+      courseData?.price_sale || courseData?.price || amount || 10000;
+
+    // 3. IMPORTANT: Save pending enrollment to DB to track user/course
     const { error: pendingError } = await supabase.from("enrollments").upsert(
       [
         {
           user_email: session.user.email.toLowerCase(),
           course_id: courseId,
           payment_id: `PENDING_${orderCode}`,
-          amount: amount || 500000,
+          amount: finalAmount,
         },
       ],
       { onConflict: "user_email,course_id" },
@@ -90,16 +99,16 @@ export async function POST(req) {
       throw new Error("Database error. Please try again.");
     }
 
-    // 3. Prepare PayOS body with SHORT description (< 25 chars)
+    // 4. Prepare PayOS body with dynamic amount
     const body = {
       orderCode: orderCode,
-      amount: amount || 500000,
+      amount: finalAmount,
       description: "", // Empty description
       items: [
         {
           name: courseId,
           quantity: 1,
-          price: amount || 500000,
+          price: finalAmount,
         },
       ],
       returnUrl: `${domain}/blog/${courseId}?status=PAID`,

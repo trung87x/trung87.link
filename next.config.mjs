@@ -24,7 +24,7 @@ const nextConfig = {
           },
           {
             key: "Cross-Origin-Embedder-Policy",
-            value: "require-corp",
+            value: "unsafe-none", // Hoặc loại bỏ header này nếu không cần thiết
           },
         ],
       },
