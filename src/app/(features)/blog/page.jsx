@@ -102,6 +102,96 @@ export default function BlogRootPage() {
               </div>
             </div>
           </Link>
+
+          {/* ASP.NET Core & Vue.js Card */}
+          <Link
+            href="/blog/asp.net-core-and-vue.js"
+            className="group relative block h-full"
+          >
+            <div className="absolute inset-0 transform rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 blur-sm transition-transform group-hover:scale-[1.02] group-hover:opacity-100 group-hover:shadow-2xl"></div>
+            <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 transition-all dark:border-[#30363d] dark:bg-[#161b22]">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-green-50 text-green-600 dark:bg-green-900/20 dark:text-green-400">
+                  <SparklesIcon className="h-8 w-8" />
+                </div>
+                <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-bold tracking-wider text-green-700 uppercase dark:bg-green-900/30 dark:text-green-300">
+                  New Release
+                </span>
+              </div>
+              <h2 className="mb-3 text-3xl font-bold text-gray-900 transition-colors group-hover:text-green-600 dark:text-white dark:group-hover:text-green-400">
+                ASP.NET & Vue
+              </h2>
+              <p className="mb-8 flex-grow leading-relaxed text-gray-600 dark:text-gray-400">
+                Xây dựng hệ thống Enterprise với ASP.NET Core và Vue.js. Clean
+                Architecture, Identity Server và Microservices.
+              </p>
+              <div className="mt-auto border-t border-gray-100 pt-6 dark:border-gray-800">
+                <div className="flex items-center font-semibold text-green-600 transition-transform group-hover:translate-x-2 dark:text-green-400">
+                  Learn Portfolio <ArrowRightIcon className="ml-2 h-4 w-4" />
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Next.js Architecture Card */}
+          <Link
+            href="/blog/nextjs-architecture"
+            className="group relative block h-full"
+          >
+            <div className="absolute inset-0 transform rounded-2xl bg-gradient-to-r from-gray-800 to-black opacity-0 blur-sm transition-transform group-hover:scale-[1.02] group-hover:opacity-100 group-hover:shadow-2xl"></div>
+            <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 transition-all dark:border-[#30363d] dark:bg-[#161b22]">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gray-50 text-gray-900 dark:bg-gray-800 dark:text-gray-100">
+                  <CommandLineIcon className="h-8 w-8" />
+                </div>
+                <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-bold tracking-wider text-gray-900 uppercase dark:bg-gray-800 dark:text-gray-300">
+                  Advanced
+                </span>
+              </div>
+              <h2 className="mb-3 text-3xl font-bold text-gray-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+                Next.js Arch
+              </h2>
+              <p className="mb-8 flex-grow leading-relaxed text-gray-600 dark:text-gray-400">
+                Deep dive into Next.js 15 App Router. Server Components,
+                Caching, and Scalable Fullstack Patterns.
+              </p>
+              <div className="mt-auto border-t border-gray-100 pt-6 dark:border-gray-800">
+                <div className="flex items-center font-semibold text-gray-900 transition-transform group-hover:translate-x-2 dark:text-gray-100">
+                  Master Next.js <ArrowRightIcon className="ml-2 h-4 w-4" />
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* React Architecture Card */}
+          <Link
+            href="/blog/react-architecture"
+            className="group relative block h-full"
+          >
+            <div className="absolute inset-0 transform rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-500 opacity-0 blur-sm transition-transform group-hover:scale-[1.02] group-hover:opacity-100 group-hover:shadow-2xl"></div>
+            <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 transition-all dark:border-[#30363d] dark:bg-[#161b22]">
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400">
+                  <AcademicCapIcon className="h-8 w-8" />
+                </div>
+                <span className="rounded-full bg-indigo-100 px-3 py-1 text-xs font-bold tracking-wider text-indigo-700 uppercase dark:bg-indigo-900/30 dark:text-indigo-300">
+                  Enterprise
+                </span>
+              </div>
+              <h2 className="mb-3 text-3xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
+                React Arch
+              </h2>
+              <p className="mb-8 flex-grow leading-relaxed text-gray-600 dark:text-gray-400">
+                Design patterns and architecture for large-scale React
+                applications. State management, testing, and performance.
+              </p>
+              <div className="mt-auto border-t border-gray-100 pt-6 dark:border-gray-800">
+                <div className="flex items-center font-semibold text-indigo-600 transition-transform group-hover:translate-x-2 dark:text-indigo-400">
+                  Architect Path <ArrowRightIcon className="ml-2 h-4 w-4" />
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
