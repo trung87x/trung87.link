@@ -69,7 +69,11 @@ export async function POST(req) {
 
     // 1. Generate orderCode (Required as integer by PayOS)
     const orderCode = Number(String(Date.now()).slice(-9));
-    const domain = process.env.NEXTAUTH_URL || "http://localhost:3000";
+
+    // Dynamic domain detection for correct redirect URL
+    const protocol = req.headers.get("x-forwarded-proto") || "http";
+    const host = req.headers.get("host") || "localhost:3000";
+    const domain = `${protocol}://${host}`;
 
     // 2. Fetch course details from DB for dynamic pricing
     const { data: courseData } = await supabase

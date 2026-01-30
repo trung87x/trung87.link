@@ -1,5 +1,5 @@
 const { test, expect } = require("@playwright/test");
-const { getSupabaseAdmin } = require("./utils/supabase");
+const { getSupabaseAdmin } = require("../src/utils/test/supabase");
 
 test.describe("Courses Feature", () => {
   test("Should verify Admin (ServiceRole) can create and delete courses", async () => {

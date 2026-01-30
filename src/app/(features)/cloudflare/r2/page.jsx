@@ -609,9 +609,7 @@ export default function R2ManagerPage() {
                   {`[
   {
     "AllowedOrigins": ["${
-      mounted && typeof window !== "undefined"
-        ? window.location.origin
-        : "http://localhost:3000"
+      mounted && typeof window !== "undefined" ? window.location.origin : ""
     }"],
     "AllowedMethods": ["GET", "PUT", "POST", "DELETE", "HEAD"],
     "AllowedHeaders": ["*"],

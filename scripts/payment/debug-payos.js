@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: ".env.local" });
 
 async function run() {
-  const { payos } = await import("../src/utils/payos/index.js");
+  const { payos } = await import("../../src/utils/payos/index.js");
 
   if (!payos) {
     return;

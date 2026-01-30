@@ -1,5 +1,5 @@
 const { test, expect } = require("@playwright/test");
-const { getSupabaseAdmin } = require("./utils/supabase");
+const { getSupabaseAdmin } = require("../src/utils/test/supabase");
 
 const supabase = getSupabaseAdmin();
 
